@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Item {
 
     // ----- members -----
-    private int id;
+    private UUID id;
     private String name;
     private int damageBonus;
     private int armorBonus;
@@ -13,7 +13,7 @@ public class Item {
 
     // ----- constructors -----
     public Item(String name, int damageBonus, int armorBonus, ItemType type) {
-        this.id = UUID.randomUUID().variant();
+        this.id = UUID.randomUUID();
         this.name = name;
         this.damageBonus = damageBonus;
         this.armorBonus = armorBonus;
@@ -21,7 +21,7 @@ public class Item {
     }
 
     // ----- getters & setters -----
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 

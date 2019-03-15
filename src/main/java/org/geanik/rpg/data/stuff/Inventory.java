@@ -1,15 +1,12 @@
 package org.geanik.rpg.data.stuff;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class Inventory {
 
     // ----- members -----
-    private Map<Integer, ObtainedItem> itemMap;
-    private Map<Integer, ObtainedItem> equippedItemMap;
+    private Map<UUID, ObtainedItem> itemMap;
+    private Map<UUID, ObtainedItem> equippedItemMap;
 
     // ----- constructors -----
     public Inventory() {
