@@ -11,6 +11,7 @@ public class Creature {
     private int level;
     private int healthPoints;
     private int combatPower;
+    private double hitChance;
     private Inventory inventory;
 
     private static Random rand = new Random();
@@ -26,22 +27,26 @@ public class Creature {
         int randFactorCp = 5 + rand.nextInt(10);
         this.combatPower = level * 5 * randFactorCp;
 
+        this.hitChance = (50.0 + rand.nextInt(30)) / 100;
+
         this.inventory = new Inventory();
     }
 
     // ----- methods -----
     public boolean attack(Creature target) {
-        int hitProbability = rand.nextInt(100);
+        double hitProbability = rand.nextDouble();
+        boolean hits = hitProbability <= (this.hitChance + this.inventory.getHitChanceBonusSum());
 
-        if (hitProbability > 25) {
+        if (hits) {
             int dmg = (this.combatPower + inventory.getDamageBonusSum())
-                    - (inventory.getArmorBonusSum());
+                    - (target.getInventory().getArmorBonusSum());
 
             target.healthPoints -= dmg;
             System.out.println(target.getName() + " took " + dmg + " from " + this.name);
             return true;
         }
 
+        System.out.println(this.name + " missed " + target.getName());
         return false;
     }
 

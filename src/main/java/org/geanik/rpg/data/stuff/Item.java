@@ -9,10 +9,12 @@ public class Item {
     private String name;
     private int damageBonus;
     private int armorBonus;
+    private double hitChanceBonus;
     private ItemType type;
 
     // ----- constructors -----
-    public Item(String name, int damageBonus, int armorBonus, ItemType type) {
+    public Item(String name, int damageBonus, int armorBonus, double hitChanceBonus, ItemType type) {
+        this.hitChanceBonus = hitChanceBonus;
         this.id = UUID.randomUUID();
         this.name = name;
         this.damageBonus = damageBonus;
@@ -55,5 +57,13 @@ public class Item {
 
     public void setType(ItemType type) {
         this.type = type;
+    }
+
+    public double getHitChanceBonus() {
+        return hitChanceBonus;
+    }
+
+    public void setHitChanceBonus(double hitChanceBonus) {
+        this.hitChanceBonus = hitChanceBonus;
     }
 }

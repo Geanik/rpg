@@ -70,6 +70,10 @@ public class Inventory {
         return equippedItemMap.values().stream().mapToInt(ObtainedItem::getArmorBonus).sum();
     }
 
+    public double getHitChanceBonusSum() {
+        return equippedItemMap.values().stream().mapToDouble(ObtainedItem::getHitChanceBonus).sum();
+    }
+
     // ----- getters & setters -----
     public Collection<ObtainedItem> getItemMap() {
         return itemMap.values();
