@@ -8,7 +8,9 @@ public class App {
 
     public static void main(String[] args) {
         Creature c1 = new Creature("Boss", 10);
-        Item item1 = new Item("Excalibur", 45, 0, ItemType.WEAPON);
+        Item item1 = new Item("Excalibur", 45, 0, 0.05, ItemType.WEAPON);
+        Item item2 = new Item("Excalibur2", 45, 0, 0.05, ItemType.WEAPON);
+        Item item3 = new Item("Excalibur3", 45, 0, 0.05, ItemType.WEAPON);
         c1.getInventory().equipItem(item1);
 
         Creature c2 = new Creature("Noob", 5);

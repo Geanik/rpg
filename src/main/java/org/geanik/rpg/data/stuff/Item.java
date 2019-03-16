@@ -1,5 +1,6 @@
 package org.geanik.rpg.data.stuff;
 
+import java.util.Objects;
 import java.util.UUID;
 
 public class Item {
@@ -20,6 +21,34 @@ public class Item {
         this.damageBonus = damageBonus;
         this.armorBonus = armorBonus;
         this.type = type;
+    }
+
+    public Item(UUID id, String name, int damageBonus, int armorBonus, double hitChanceBonus, ItemType type) {
+        this.id = id;
+        this.name = name;
+        this.damageBonus = damageBonus;
+        this.armorBonus = armorBonus;
+        this.hitChanceBonus = hitChanceBonus;
+        this.type = type;
+    }
+
+    // ----- methods -----
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null ||
+                // both classes don't inherit from Item TODO: maybe better way to compare instances of different inheritance levels
+                (!(o.getClass().isAssignableFrom(Item.class) || getClass().isAssignableFrom(Item.class)))) {
+            return false;
+        }
+
+        Item item = (Item) o;
+        return id.equals(item.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 
     // ----- getters & setters -----

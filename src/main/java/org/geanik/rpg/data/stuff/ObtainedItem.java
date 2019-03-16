@@ -5,7 +5,7 @@ public class ObtainedItem extends Item {
     private int count;
 
     public ObtainedItem(Item item) {
-        super(item.getName(), item.getDamageBonus(), item.getArmorBonus(), item.getType());
+        super(item.getId(), item.getName(), item.getDamageBonus(), item.getArmorBonus(), item.getHitChanceBonus(), item.getType());
         this.count = 1;
     }
 

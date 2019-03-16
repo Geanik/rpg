@@ -1,10 +1,10 @@
 package org.geanik.rpg.data.stuff;
 
 public enum ItemType {
-    HELMET,
+    HEAD,
     UPPER_BODY,
     GLOVES,
     LOWER_BODY,
-    BOOTS,
+    FEET,
     WEAPON
 }

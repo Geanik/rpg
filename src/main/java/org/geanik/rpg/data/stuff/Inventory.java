@@ -18,7 +18,7 @@ public class Inventory {
     public Optional<ObtainedItem> obtainItem(Item item) {
 
         Optional<ObtainedItem> obtainedItemOpt = itemMap.values().stream()
-                .filter(i -> i.getName().equals(item.getName())).findAny();
+                .filter(i -> i.getId().equals(item.getId())).findAny();
 
         if (obtainedItemOpt.isPresent()) {
             // item already in inventory
@@ -75,11 +75,11 @@ public class Inventory {
     }
 
     // ----- getters & setters -----
-    public Collection<ObtainedItem> getItemMap() {
-        return itemMap.values();
+    public List<ObtainedItem> getItemMap() {
+        return new ArrayList<>(itemMap.values());
     }
 
-    public Collection<ObtainedItem> getEquippedItemMap() {
-        return equippedItemMap.values();
+    public List<ObtainedItem> getEquippedItemMap() {
+        return new ArrayList<>(equippedItemMap.values());
     }
 }
