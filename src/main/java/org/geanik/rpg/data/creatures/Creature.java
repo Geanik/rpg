@@ -33,7 +33,7 @@ public class Creature {
     }
 
     // ----- methods -----
-    public boolean attack(Creature target) {
+    public boolean  attack(Creature target) {
         double hitProbability = rand.nextDouble();
         boolean hits = hitProbability <= (this.hitChance + this.inventory.getHitChanceBonusSum());
 
